@@ -1,7 +1,7 @@
 {
-  "name": "pdf-export",
-  "version": "1.0.0",
-  "description": "",
+  "name": "pdf-html",
+  "version": "1.0.2",
+  "description": "export dom to pdf",
   "main": "lib/index.min.js",
   "unpkg": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -10,9 +10,13 @@
     "build": "rollup -c",
     "test": "jest --no-cache"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["pdf", "html2pdf", "dom2pdf", "pdf-export", "print"],
+  "author": "niannings",
   "license": "ISC",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/niannings/pdf-html.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
