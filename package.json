@@ -1,6 +1,6 @@
 {
   "name": "pdf-html",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "export dom to pdf",
   "main": "lib/index.min.js",
   "unpkg": "lib/index.js",
