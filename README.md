@@ -72,6 +72,69 @@ pdfHtml({
 
 ### React
 
+#### 基本使用
+
 ```jsx
-import reactPdfHtml from 'pdf-html/dist/react-pdf-html.js'
+import reactPdfHtml from 'pdf-html/dist/react-pdf-html.js';
+
+const div = document.createElement('div');
+
+document.body.append(div);
+
+reactPdfHtml({
+    el: div,
+    component: (
+        <div>
+            <MyComponent />
+        </div>
+    )
+});
+```
+
+#### 组件内有异步更新
+
+等待组件完成更新再来导出
+
+```jsx
+import reactPdfHtml from 'pdf-html/dist/react-pdf-html.js';
+
+const div = document.createElement('div');
+
+document.body.append(div);
+
+let start;
+const waitUpdate = isOk => {
+    if (isOk) {
+        setTimeout(() => start(isOk));
+    }
+}
+
+start = reactPdfHtml({
+    el: div,
+    component: (
+        <div>
+            <MyComponent onFetched={waitUpdate} />
+        </div>
+    )
+});
+```
+
+MyComponent.js
+
+```jsx
+function MyComponent({ onFetched }) {
+    const [message, setMessage] = useState('no message');
+    const getData = () => {
+        setTimeout(() => {
+            setMessage('hello pdf-html');
+            onFetched && onFetched(true);
+        }, 2000);
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    return <div>{message}</div>
+}
 ```
