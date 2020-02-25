@@ -115,7 +115,8 @@ start = reactPdfHtml({
         <div>
             <MyComponent onFetched={waitUpdate} />
         </div>
-    )
+    ),
+    async: true
 });
 ```
 
