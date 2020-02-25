@@ -1,4 +1,4 @@
-/*! pdf-html - v1.0.4 - 2/25/2020 https://niannings.github.io */
+/*! pdf-html - v1.0.5 - 2/25/2020 https://niannings.github.io */
 import t from"./index.js";import e,{createRef as n,Component as r}from"react";import{render as o,unmountComponentAtNode as i}from"react-dom";
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
