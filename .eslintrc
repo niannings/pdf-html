@@ -1,0 +1,81 @@
+{
+    "parser": "@typescript-eslint/parser", //定义ESLint的解析器
+    "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "prettier",
+        "prettier/@typescript-eslint"
+    ],
+    "plugins": [
+        "@typescript-eslint",
+        "prettier"
+    ], //定义了该eslint文件所依赖的插件
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "prettier/prettier": "error",
+        // typescript
+        "@typescript-eslint/no-use-before-define": [
+            2,
+            { "functions": false, "classes": false }
+        ],
+        "@typescript-eslint/unified-signatures": 1,
+        // "@typescript-eslint/await-thenable": 2,
+        "@typescript-eslint/camelcase": 0,
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-unused-vars": [
+            1,
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": true,
+                "varsIgnorePattern": "^_",
+                "argsIgnorePattern": "^_|^err|^ev" // _xxx, err, error, ev, event
+            }
+        ],
+        "@typescript-eslint/adjacent-overload-signatures": 2,
+        "@typescript-eslint/array-type": [
+            1,
+            {
+                "default": "array-simple"
+            }
+        ],
+        "@typescript-eslint/ban-types": 2,
+        "@typescript-eslint/class-name-casing": 2,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/explicit-member-accessibility": 0,
+        "@typescript-eslint/interface-name-prefix": 0,
+        "@typescript-eslint/member-delimiter-style": 2,
+        "@typescript-eslint/no-empty-interface": 1,
+        "@typescript-eslint/no-extra-non-null-assertion": 2,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-inferrable-types": 0,
+        "@typescript-eslint/no-misused-new": 2,
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "@typescript-eslint/consistent-type-assertions": 2,
+        "@typescript-eslint/no-parameter-properties": 2,
+        "@typescript-eslint/triple-slash-reference": 2,
+        "@typescript-eslint/no-var-requires": 2,
+        "@typescript-eslint/consistent-type-definitions": [2, "interface"],
+        "@typescript-eslint/prefer-namespace-keyword": 2,
+        "@typescript-eslint/type-annotation-spacing": 1
+    },
+    "settings": {
+        //自动发现React的版本，从而进行规范react代码
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        }
+    },
+    "parserOptions": {
+        //指定ESLint可以解析JSX语法
+        "ecmaVersion": 2019,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    }
+}

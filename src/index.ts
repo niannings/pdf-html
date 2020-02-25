@@ -3,12 +3,12 @@ interface IPrintStyles {
     margin?: string;
 }
 
-interface IPrintPdfParams {
-    el: Element | Element[] | NodeListOf<any> | string | string[];
+export interface IPdfHtmlParams {
+    el: Element | Element[] | NodeListOf<Element> | string | string[];
     styles?: IPrintStyles;
 }
 
-function printPdf(params: IPrintPdfParams) {
+function pdfHtml(params: IPdfHtmlParams) {
     const { el } = params;
     let domGroup: Element[] = [];
 
@@ -24,13 +24,13 @@ function printPdf(params: IPrintPdfParams) {
         domGroup.push(el);
     } else if (el instanceof Array) {
         if (typeof el[0] === 'string') {
-            each<string>(<string[]>el, item =>
-                (<Array<any>>domGroup).push(
+            each<string>(el as string[], item =>
+                (domGroup as any[]).push(
                     ...Array.from(document.querySelectorAll(item))
                 )
             );
         } else {
-            domGroup = <Element[]>el;
+            domGroup = el as Element[];
         }
     } else {
         domGroup = Array.from(el);
@@ -46,9 +46,9 @@ function printPdf(params: IPrintPdfParams) {
     setTimeout(() => printEnd(domGroup, styleEl));
 }
 
-export default printPdf;
+export default pdfHtml;
 
-function printStart(params: IPrintPdfParams, domGroup: Element[]) {
+function printStart(params: IPdfHtmlParams, domGroup: Element[]) {
     let isFull: boolean;
     // init styles
     each(domGroup, dom => {

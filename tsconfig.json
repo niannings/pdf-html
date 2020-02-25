@@ -4,7 +4,12 @@
         "target": "ES5",
         "sourceMap": true,
         "declaration": true,
-        "outDir": "lib"
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "es6",
+            "dom"
+        ]
     },
     "include": [
         "src/**/*"

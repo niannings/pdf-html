@@ -67,3 +67,11 @@ pdfHtml({
     }
 });
 ```
+
+## 搭配框架使用
+
+### React
+
+```jsx
+import reactPdfHtml from 'pdf-html/dist/react-pdf-html.js'
+```
